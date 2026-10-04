@@ -1,0 +1,28 @@
+name: ENGINEX CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm install
+      - run: node --check server.js
+      - run: node --check <(python3 - <<'PY'
+import re
+from pathlib import Path
+s=Path('index.html').read_text()
+for m in re.finditer(r'<script[^>]*>(.*?)</script>', s, re.S|re.I):
+    Path('/tmp/enginex-inline.js').write_text(m.group(1))
+    break
+PY
+)
