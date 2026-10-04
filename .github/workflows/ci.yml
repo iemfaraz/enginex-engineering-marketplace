@@ -14,5 +14,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
       - run: npm install
       - run: node --check server.js
+      - run: node -e "const fs=require('fs'); const s=fs.readFileSync('index.html','utf8'); if(!s.includes('<html')||!s.includes('</html>')) process.exit(1); console.log('Frontend smoke check passed')"
+      - run: node -e "JSON.parse(fs.readFileSync('package.json','utf8')); function fs(){}"
