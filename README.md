@@ -1,25 +1,48 @@
-# ENGINEX Engineering Marketplace — Render Ready
+# ENGINEX Engineering Marketplace
 
-Full-stack engineering jobs marketplace with engineer, employer, and administrator roles.
+Production-ready Node.js/PostgreSQL marketplace for engineering services, projects, jobs and professional profiles.
 
-## One-click Render deployment
+## Deployment
 
-1. Put this project in a GitHub repository (the `render.yaml` file must be at repository root).
-2. In Render choose **New → Blueprint** and select the repository.
-3. Click **Apply**. The Blueprint creates the Node web service and PostgreSQL database and connects `DATABASE_URL` automatically.
-4. Open the generated `*.onrender.com` URL.
+The repository includes a Render Blueprint in `render.yaml`.
 
-Render supports Blueprints through `render.yaml`, including wiring a web service to a Postgres connection string. The included configuration uses the free plans for testing. Free Render web services can spin down after 15 minutes idle, and free Postgres databases expire after 30 days, so upgrade the database before using this for permanent production data.
+1. Open Render.
+2. Create **New → Blueprint**.
+3. Select `iemfaraz/enginex-engineering-marketplace`.
+4. Apply the Blueprint.
+5. Set the secret environment variables:
+   - `ADMIN_EMAIL`
+   - `ADMIN_PASSWORD`
+6. For production billing, configure the bank variables:
+   - `BANK_NAME`
+   - `BANK_ACCOUNT`
+   - `BANK_IBAN`
+7. Keep `DATABASE_URL` managed by Render.
 
-## Admin
+## Important production settings
 
-Initial administrator:
-- Email: `admin@enginex.com`
-- Password: `Admin@123`
+Do not use a default administrator password. The administrator is seeded only when both `ADMIN_EMAIL` and `ADMIN_PASSWORD` are supplied.
 
-Change the admin password in production. The password is only used to seed the first administrator; the app stores a hash rather than the plain password.
+For permanent production data, use a paid/persistent PostgreSQL plan rather than a free trial database.
 
-## Local run
+## Current marketplace capabilities
+
+- Engineer and employer registration/login
+- Public service/project/job marketplace
+- Service packages and project requests
+- Applications and proposals
+- Messaging
+- Engineer/employer profiles
+- Support tickets and support chat
+- Admin moderation
+- User activation/suspension
+- Audit logging
+- Billing and bank-transfer orders
+- Admin payment approval/rejection
+- Persistent PostgreSQL state
+- Render health endpoint: `/api/health`
+
+## Local development
 
 Requires Node.js 20+.
 
@@ -30,19 +53,13 @@ npm start
 
 Open `http://localhost:3000`.
 
-## Included platform capabilities
+## Production checklist
 
-- Public engineering vacancy search
-- Engineer registration/login
-- Employer registration/login
-- Vacancy submission and admin moderation
-- Engineer applications
-- Employer application status workflow
-- Engineer/employer profiles
-- Messaging API
-- Administrator dashboard
-- User activation/suspension
-- Job approval/rejection/closure
-- Audit log
-- Persistent PostgreSQL state on Render
-- Health endpoint: `/api/health`
+Before inviting real customers:
+
+- Configure a strong admin secret.
+- Configure business bank details in Render environment variables.
+- Upgrade PostgreSQL for persistent production data.
+- Configure a real payment gateway only after testing its webhook flow.
+- Connect a custom domain and HTTPS.
+- Test registration, service posting, proposals, orders, messaging and admin moderation.
