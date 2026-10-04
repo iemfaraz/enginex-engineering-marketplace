@@ -1,0 +1,16 @@
+{
+  "name": "enginex-engineering-marketplace",
+  "version": "2.1.0",
+  "private": true,
+  "description": "ENGINEX engineering jobs marketplace - Render ready",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "pg": "^8.16.3"
+  }
+}

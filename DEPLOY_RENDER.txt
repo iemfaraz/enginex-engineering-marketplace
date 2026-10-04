@@ -1,0 +1,17 @@
+ENGINEX RENDER DEPLOYMENT
+
+1. Create a GitHub repository and upload ALL files in this folder to the repository ROOT.
+2. In Render: New -> Blueprint.
+3. Connect/select that GitHub repository.
+4. Render reads render.yaml automatically and creates:
+   - enginex-engineering-marketplace (free Node web service)
+   - enginex-marketplace-db (free PostgreSQL)
+   - DATABASE_URL automatically connected to the web service
+5. Click Apply.
+6. Open the generated https://<service>.onrender.com URL.
+
+Initial admin:
+Email: admin@enginex.com
+Password: Admin@123
+
+IMPORTANT: the free Render PostgreSQL database expires after 30 days. Upgrade the database before relying on it for permanent production data.
