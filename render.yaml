@@ -1,0 +1,16 @@
+# Exported from Render on 2026-10-04T16:26:05Z
+version: "1"
+projects:
+- name: My project
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: enginex-engineering-marketplace
+      runtime: node
+      repo: https://github.com/iemfaraz/enginex-engineering-marketplace
+      plan: free
+      region: oregon
+      buildCommand: yarn
+      startCommand: enginex-engineering-marketplace
+      autoDeployTrigger: commit
