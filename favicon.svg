@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="10" fill="#0A1D37"/>
+  <path d="M24 8 L24 14 L29 11 L24 8 Z" fill="#D4A017"/>
+  <path d="M24 14 L18 18 L24 22 L30 18 L24 14 Z" fill="#D4A017"/>
+  <path d="M18 18 L13 22 L18 26 L24 22 L18 18 Z" fill="#1D4ED8"/>
+  <path d="M30 18 L35 22 L30 26 L24 22 L30 18 Z" fill="#1D4ED8"/>
+  <path d="M24 22 L18 26 L24 30 L30 26 L24 22 Z" fill="#D4A017"/>
+  <path d="M18 26 L13 30 L18 34 L24 30 L18 26 Z" fill="#1D4ED8"/>
+  <path d="M30 26 L35 30 L30 34 L24 30 L30 26 Z" fill="#1D4ED8"/>
+  <path d="M24 30 L18 34 L24 38 L30 34 L24 30 Z" fill="#D4A017"/>
+  <text x="24" y="44" font-family="Plus Jakarta Sans, sans-serif" font-size="6" font-weight="800" fill="#D4A017" text-anchor="middle">EX</text>
+</svg>
